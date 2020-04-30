@@ -1,3 +1,5 @@
+png("plot4.png", 480, 480)
+
 hpc <- read.csv2('./household_power_consumption.txt')
 hpc$Date <- as.Date(hpc$Date, '%d/%m/%Y')
 hpc <- hpc[(hpc$Date>='2007-2-1' & hpc$Date<='2007-2-2'),]
@@ -18,7 +20,6 @@ with(hpc, points(datetime,Sub_metering_3, col='blue', type='l'))
 
 legend("topright", pch = 95, col = c("black", "blue", "red"), legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), box.lty=0)
 
-
 #3
 with(hpc, plot(datetime, Voltage, type='l'))
 
@@ -26,5 +27,4 @@ with(hpc, plot(datetime, Voltage, type='l'))
 with(hpc, plot(datetime, Global_reactive_power, type='l'))
 
 
-dev.copy(png, file = "plot4.png") 
 dev.off() 
